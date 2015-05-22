@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Microformats Test Runner</title>
+
+    {{> head}} 
+        
+    <script>
+        var parser = "{{{this.request.parser}}}",
+            testData = {{{json-stringify results}}};
+    </script>    
+        
+</head>
+<body >
+    
+        {{> header}} 
+        
+        <h1>Microformats Test Runner (Tests v{{testSuiteVersion}})</h1>
+       
+        {{#if counts}}
+        <h2 class="test-counts">{{this.request.parser}}</br> Passed: {{this.counts.passed}}/{{this.counts.count}} - {{this.counts.passedPercentage}}% of {{this.request.version}} tests</h2> 
+        <p>Inspect the details of any test from the list</p>
+        {{/if}}
+        
+        <section class="flexbox-container">
+        
+            <section class="test-results">
+                <ul class="test-result-list"> 
+                {{#each results}}
+                   <li class="{{#if differences}}test-error{{/if}}"><a href="/run/{{../request.parser}}/{{version}}/{{format}}/{{name}}/">{{format}} - {{name}}</a></li>
+                {{/each}}
+                </ul>
+            </section>
+    
+             <section class="test-detail">
+                <h1 id="test-status"></h1>
+                <h1 id="test-name">Test</h1>
+                <div id="test-html"><pre class="prettyprint"><code class="language-html"></code></pre></div>
+                    
+                <h1>Expected JSON</h1>
+                <div id="test-json"><pre class="prettyprint"><code class="language-json"></code></pre></div>
+                    
+                <h1>JSON from &quot;{{this.request.parser}}&quot; parser</h1>
+                <div id="test-json-parsed"><pre class="prettyprint"><code class="language-json"></code></pre></div>
+                 
+                 <div class="differences">
+                    <h1>Differences</h1>    
+                    <div id="test-diff"><pre class="prettyprint"><code class="language-json"></code></pre></div>
+                   {{> differences}}
+                </div>
+                
+            </section>
+            
+        </section>
+
+        {{> footer}} 
+    
+      
+</body>
+
+</html>

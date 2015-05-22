@@ -1,0 +1,42 @@
+{
+	"parsers": [
+		{
+			"name": "php-mf2",
+			"method": "post",
+			"htmlPropertyName": "html",
+			"baseURLPropertyName": "url",
+			"url": "https://pin13.net/mf2/",
+			"projectUrl": "https://github.com/indieweb/php-mf2",
+			"authors": ["Barnaby Walters","Aaron Parecki"]
+		},{
+			"name": "mf2py",
+			"method": "get",
+			"htmlPropertyName": "doc",
+			"url": "https://kylewm.com/services/mf2",
+			"projectUrl": "https://github.com/tommorris/mf2py",
+			"authors": ["Tom Morris"]
+		},{
+			"name": "microformats-node",
+			"method": "get",
+			"htmlPropertyName": "html",
+			"baseURLPropertyName": "baseurl",
+			"url": "http://tools.transmat.io/microformats/html/",
+			"projectUrl": "https://github.com/G5/microformats2",
+			"authors": ["Glenn Jones"]
+		},{
+			"name": "microformats-go",
+			"method": "post",
+			"htmlPropertyName": "html",
+			"url": "http://mf2.vendaria.net/parse",
+			"projectUrl": "https://github.com/andyleap/microformats",
+			"authors": ["Andy Leap"]
+		}
+	],
+	"versions": [
+		{"name": "all"},
+		{"name": "microformats-v2"},
+		{"name": "microformats-v1"},
+		{"name": "microformats-mixed"}
+	],
+	"localPathToTests": "../tests/"
+}

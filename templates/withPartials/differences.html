@@ -1,0 +1,25 @@
+            <div class="differences-description">
+                <p>Differences are reported using the following structure:</p>
+    
+                <ul>
+                    <li>
+                        <code>kind</code>- indicates the kind of change; will be one of the following:
+                        <ul>
+                            <li><code>N</code>- indicates a newly added property/element</li>
+                            <li><code>D</code>- indicates a property/element was deleted</li>
+                            <li><code>E</code>- indicates a property/element was edited</li>
+                            <li><code>A</code>- indicates a change occurred within an array</li>
+                        </ul>
+                    </li>
+                    <li><code>path</code>- the property path (from the left-hand-side root)</li>
+                    <li><code>lhs</code>(Expected JSON) - the value on the left-hand-side of the comparison (undefined if kind === 'N')</li>
+                    <li><code>rhs</code>(JSON from parser) - the value on the right-hand-side of the comparison (undefined if kind === 'D')</li>
+                    <li><code>index</code>- when kind === 'A', indicates the array index where the change occurred</li>
+                    <li><code>item</code>- when kind === 'A', contains a nested change record indicating the change that occurred at the array index</li>
+                </ul>
+                
+                <p>Change records are generated for all structural differences between origin and comparand. The methods only consider 
+                    an object's own properties and array elements; those inherited from an object's prototype chain are not considered.
+                </p>
+    
+            </div>

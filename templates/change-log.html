@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>{{format}} parsing tests</title>
+
+    <link rel="stylesheet" href="../../../css/testsuite.css">
+    <link rel="stylesheet" href="../../../prettify.css">
+
+    <script src="../../../javascript/prettify.js"></script>
+    <script src="../../../javascript/testsuite.js"></script>
+   
+</head>
+<body class="h-feed">
+        
+        <h1 class="p-name"><span class="p-x-format">{{format}}</span> parsing tests &dash; change logs</h1>
+
+        {{#each description}}
+           <p class="p-description">{{this}}</p> 
+        {{/each}}
+
+
+    <h2>Change log:</h2>
+    <ul>
+        <!-- Add change log event to the top of this list as a h-entry -->
+      {{#each history}}
+        <li class="h-entry">
+            <span class="p-name e-content">{{properties.name}}</span> &dash; 
+            <time class="dt-published" datetime="{{properties.published}}">{{publishedDateString}}</time> 
+            by <span class="p-author">{{properties.author}}</span>
+        </li>
+      {{/each}}
+    </ul>
+
+
+    <h2>Contributors:</h2>
+    <ul>
+        <!-- If you Contribute to the test please add yourself as an author using p-author h-card -->
+     {{#each author}}
+        <li class="p-author h-card">
+           <a class="u-url p-name" rel="author" href="{{properties.url}}">{{properties.name}}</a> 
+        </li>
+     {{/each}}
+    </ul>
+
+        
+    <footer>
+        All content and code is released into the <a href="http://en.wikipedia.org/wiki/public_domain">public domain</a>
+    </footer>
+      
+</body>
+
+</html>

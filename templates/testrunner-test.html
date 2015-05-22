@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Test {{request.format}}/{{request.name}}</title>
+
+    {{> head}} 
+        
+    <script>
+        var testData = {{{json-stringify results}}};
+    </script>    
+        
+</head>
+<body >
+    
+        {{> header}} 
+        
+        <h1>Microformats Tests v{{testSuiteVersion}}</h1>
+        
+
+        {{#if result.differences}}
+           <section class="test-container test-failed">
+           <h1 class="p-name failed">{{request.parser}}</br>Failed: {{request.version}}/{{request.format}}/{{request.name}}</h1>
+        {{else}}
+            <section class="test-container test-passed">  
+           <h1 class="p-name">{{request.parser}}</br>Passed: {{request.version}}/{{request.format}}/{{request.name}}</h1>     
+        {{/if}}
+        
+        <p>{{#each this.metadata.descriptions}}
+            <span class="p-description">{{this}}</span>
+        {{/each}}</p>
+        
+        
+        <h1 id="test-name">Test</h1>
+        <div id="test-html"><pre class="prettyprint"><code class="language-html">{{result.html}}</code></pre></div>
+            
+        <h1>Expected JSON</h1>
+        <div id="test-json"><pre class="prettyprint"><code class="language-json">{{result.jsonString}}</code></pre></div>
+
+        <h1>JSON from &quot;{{this.request.parser}}&quot; parser</h1>
+        <div id="test-json-parsed"><pre class="prettyprint"><code class="language-json">{{result.resultString}}</code></pre></div>
+              
+              
+         {{#if result.differences}}       
+         <div class="differences">
+            <h1>Differences</h1>    
+            <div id="test-diff"><pre class="prettyprint"><code class="language-json">{{result.differencesString}}</code></pre></div>
+            {{> differences}}
+        </div>
+        {{/if}}     
+
+        </section>
+        
+        {{> footer}} 
+        
+         <script>
+            prettyPrint();
+        </script>
+
+</body>
+
+</html>

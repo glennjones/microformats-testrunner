@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Microformats Test Suite v{{testSuiteVersion}}</title>
+
+    {{> head}} 
+        
+    <script>
+        var testData = {{{json-stringify results}}};
+    </script>    
+        
+</head>
+<body >
+    
+        {{> header}} 
+        
+        <h1>Microformats Tests v{{testSuiteVersion}}</h1>
+        
+        
+        <h1>Run Test Suite against parser API's</h1>
+        
+         <table class="run-list">
+             <thead>
+                <tr>
+                  <th>Parser</th>
+                  {{#each config.versions}}
+                  <th>&nbsp;</th>
+                  {{/each}}
+                </tr>
+              </thead>
+              <tbody>
+             {{#each runList}}
+             <tr>
+                 <td>{{this.name}}</td>
+                 {{#each this.items}}
+                 <td><a href="/run/{{this.name}}/{{this.version}}/">{{this.version}}</a></td>
+                 {{/each}}
+             </tr>
+            {{/each}}
+            </tbody>
+         </table>
+         
+        
+        <h1>View tests</h1>
+        <p>The links below are to the individual tests that make up the microformats test suite. If if find an 
+            errors please post an issue at <a href="https://github.com/microformats/tests/issues">https://github.com/microformats/tests/issues</a>.</p>
+         <section class="flexbox-container" id="test-list-by-version">   
+            {{#each tests}}
+            <section id="{{this.name}}" class="test-list">
+                <h2>{{this.name}}</h2>
+                <ul class="all-test-list">
+                {{#each this.items}}
+                    <li><a href="/test/{{this.version}}/{{this.format}}/{{this.name}}/">{{this.format}}/{{this.name}}</a></li>
+                {{/each}}
+                </ul>
+            </section>
+            {{/each}}
+         </section>
+       
+        {{> footer}} 
+
+</body>
+
+</html>

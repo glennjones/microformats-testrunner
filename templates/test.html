@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Microformats Test Suite v{{testSuiteVersion}}</title>
+
+    {{> head}} 
+        
+    <script>
+        var testData = {{{json-stringify results}}};
+    </script>    
+        
+</head>
+<body >
+    
+        {{> header}} 
+        
+        <h1>Microformats Tests v{{testSuiteVersion}}</h1>
+        
+        <h2 class="p-name">{{request.version}}/{{request.format}}/{{request.name}}</h2>
+        
+        <p>{{#each this.metadata.descriptions}}
+            <span class="p-description">{{this}}</span>
+        {{/each}}</p>
+        
+        
+        <h1 id="test-name">Test</h1>
+        <div id="test-html"><pre class="prettyprint"><code class="language-html">{{test.html}}</code></pre></div>
+            
+        <h1>Expected JSON</h1>
+        <div id="test-json"><pre class="prettyprint"><code class="language-json">{{test.jsonstring}}</code></pre></div>
+
+        <script>
+            prettyPrint();
+        </script>
+        
+        <h2>The history of this group of {{request.version}}/{{request.format}} tests</h2>
+        <ul>
+            {{#each this.metadata.history}}
+            <li class="h-entry">
+                <span class="p-name e-content">{{this.properties.name}}</span> &dash; 
+                <time class="dt-published" datetime="{{this.properties.published}}">{{publishedDateString}}</time> 
+                by <span class="p-author">{{this.properties.author}}</span>
+            </li>
+            {{/each}}
+        </ul>
+        
+        
+        
+        <h2>Contributors:</h2>
+        <ul>
+           {{#each this.metadata.authors}}
+            <li class="p-author h-card">
+               <a class="u-url p-name" rel="author" href="{{this.properties.url}}">{{this.properties.name}}</a> 
+            </li>
+            {{/each}}
+        </ul>
+        
+        
+        
+        {{> footer}} 
+
+</body>
+
+</html>
