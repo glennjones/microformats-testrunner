@@ -27,6 +27,7 @@
 			"name": "microformats-go",
 			"method": "post",
 			"htmlPropertyName": "html",
+			"baseURLPropertyName": "url",
 			"url": "http://mf2.vendaria.net/parse",
 			"projectUrl": "https://github.com/andyleap/microformats",
 			"authors": ["Andy Leap"]
