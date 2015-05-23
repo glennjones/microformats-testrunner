@@ -38,5 +38,5 @@
 		{"name": "microformats-v1"},
 		{"name": "microformats-mixed"}
 	],
-	"localPathToTests": "../tests/"
+	"localPathToTests": "../node_modules/microformat-tests/tests/"
 }

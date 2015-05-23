@@ -27,6 +27,7 @@
     "joi": "6.4.x",
     "js-beautify": "1.5.x",
     "microformat-node": "0.2.x",
+    "microformat-tests": "0.1.x",
     "mkdirp": "0.5.x",
     "moment": "2.10.x",
     "node-dir": "^0.1.8",
