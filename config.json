@@ -10,8 +10,11 @@
 			"authors": ["Barnaby Walters","Aaron Parecki"]
 		},{
 			"name": "mf2py",
-			"method": "get",
+			"method": "post",
 			"htmlPropertyName": "doc",
+			"baseURLPropertyName": "url",
+			"strictProperty": "strip_rel_urls",
+			"strictPropertyValue": "on",
 			"url": "https://kylewm.com/services/mf2",
 			"projectUrl": "https://github.com/tommorris/mf2py",
 			"authors": ["Tom Morris"]
@@ -20,8 +23,8 @@
 			"method": "get",
 			"htmlPropertyName": "html",
 			"baseURLPropertyName": "baseurl",
-			"url": "http://tools.transmat.io/microformats/html/",
-			"projectUrl": "https://github.com/G5/microformats2",
+			"url": "http://glennjones.net/tools/microformats/",
+			"projectUrl": "https://github.com/glennjones/microformats-node",
 			"authors": ["Glenn Jones"]
 		},{
 			"name": "microformats-go",
