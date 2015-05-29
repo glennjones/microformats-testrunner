@@ -302,3 +302,15 @@ footer{
 .test-container{
   padding-left: 1em;
 }
+
+
+#textcontent-test textarea{
+  font-size: 1em;
+  min-height: 6em;
+  min-width: 40em;
+  padding: 0.5em;
+}
+
+#textcontent-test input{
+  font-size: 1em;
+}

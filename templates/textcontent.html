@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>textContent</title>
+    
+    
+    <script>
+        
+        
+        
+        window.addEventListener('load', function (e) {
+            var btnElt = document.querySelector('#btn');
+            
+            btnElt.addEventListener('click', function(e){
+                upDateResult();
+            });
+        });
+
+        
+        function upDateResult(){
+            var htmlElt = document.querySelector('#html'),
+                selectorElt = document.querySelector('#selector'),
+                trimElt = document.querySelector('#trim'),
+                nonprintableElt = document.querySelector('#nonprintable'),
+                resultElt = document.querySelector('#result');
+                
+            
+            var container = document.createElement('div');
+            container.innerHTML = htmlElt.value;
+            
+            if(trim(selectorElt.value) !== ''){
+                container = container.querySelector(selectorElt.value);
+            }
+            
+            var text = container.textContent;
+            
+            if(trimElt.checked){
+                text = trimEnds( text );
+            }
+            
+            // convert to javascript stringified
+            text = JSON.stringify(text);
+            text = text.substr(1,text.length-2);
+            
+           if(nonprintableElt.checked){
+                text = addNonPrintingChar(text);
+            }
+            resultElt.innerHTML = text;
+        }
+        
+        
+        function addNonPrintingChar(text){
+            return text.replace(/ /g, '.')
+        }
+        
+        
+        
+        // removes whitespace, tabs and returns from start and end of text
+        function trimEnds( text ){
+            if(text && text.length){
+                var i = text.length,
+                    x = 0;
+                
+                // turn all whitespace chars at end into spaces
+                while (i--) {
+                    if(isOnlyWhiteSpace(text[i])){
+                        text[i] = ' ';
+                    }else{
+                        break;
+                    }
+                }
+                
+                // turn all whitespace chars at start into spaces
+                i = text.length;
+                while (x < i) {
+                    if(isOnlyWhiteSpace(text[x])){
+                        text[x] = ' ';
+                    }else{
+                        break;
+                    }
+                    x++;
+                }
+            }
+            return trim(text);
+        }
+        
+        
+        // is the object a string
+        function isString( obj ) {
+            return typeof( obj ) === 'string';
+        }
+    
+    
+        // remove spaces at front and back of string
+        function trim( str ) {
+            if(isString(str)){
+                return str.replace(/^\s+|\s+$/g, '');
+            }else{
+                return '';
+            }
+        }
+    
+    
+        // is a string only contain white space chars
+        function isOnlyWhiteSpace( str ){
+            return !(/[^\t\n\r ]/.test( str ));
+        }
+ 
+        
+    </script>
+    
+    
+
+    {{> head}} 
+        
+        
+</head>
+<body >
+    
+        {{> header}} 
+        
+        <h1>Microformats Tests</h1>
+        
+        <scetion id="textcontent-test">
+            <h2>textContent browser test</h2>
+                
+            <p>This is a simple client-side script that displays the <code>textContent</code> 
+            of the HTML pasted into the textarea below. It allows you to view the resulting 
+            text string and compare other implementation of <code>textContent</code> with this 
+            browsers implementation.</p>    
+            
+            <p>
+<textarea id="html">
+<a class="h-card" href="http://glennjones.net">
+    <span class="p-given-name">Glenn</span>
+    <span class="p-family-name">Jones</span>
+</a>
+</textarea>
+            </p>
+            
+             <p>
+                <label for="selector">CSS selector to start from</label> 
+                <input type="text" name="selector" id="selector" value=".h-card"/>
+            </p>
+            
+            <p>
+                <input type="checkbox" name="trim" id="trim" checked="checked"/>
+                <label for="trim">Trim leading/ending whitespace</label>
+            </p>
+            <p>
+                <input type="checkbox" name="nonprintable" id="nonprintable"/>
+                <label for="nonprintable">Replace non-printable characters (helps count spaces)</label>
+            </p>
+            
+            <p>
+                <button id="btn">Get textContent</button>
+            </p>
+            
+            <h2>Result from Get textContent</h2>
+            <pre id="result" class="prettyprint"> </pre>
+            
+     
+            
+            
+        </scetion>
+        
+        {{> footer}} 
+
+</body>
+
+</html>
