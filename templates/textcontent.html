@@ -132,16 +132,20 @@
             
             <p>
 <textarea id="html">
-<a class="h-card" href="http://glennjones.net">
-    <span class="p-given-name">Glenn</span>
-    <span class="p-family-name">Jones</span>
-</a>
+<p class="h-adr">
+    <span class="p-street-address">665 3rd St.</span>  
+    <span class="p-extended-address">Suite 207</span>  
+    <span class="p-locality">San Francisco</span>,  
+    <span class="p-region">CA</span>  
+    <span class="p-postal-code">94107</span>  
+    <span class="p-country-name">&dash;U.S.A.</span>  
+</p>
 </textarea>
             </p>
             
              <p>
                 <label for="selector">CSS selector to start from</label> 
-                <input type="text" name="selector" id="selector" value=".h-card"/>
+                <input type="text" name="selector" id="selector" value=".h-adr"/>
             </p>
             
             <p>
@@ -160,7 +164,8 @@
             <h2>Result from Get textContent</h2>
             <pre id="result" class="prettyprint"> </pre>
             
-     
+     665 3rd St.  \n    Suite 207  \n    San Francisco,  \n    CA  \n    94107  \n    U.S.A.
+     665 3rd St.  \n    Suite 207  \n    San Francisco,  \n    CA  \n    94107  \n    ‐U.S.A.
             
             
         </scetion>

@@ -13,8 +13,6 @@
 			"method": "post",
 			"htmlPropertyName": "doc",
 			"baseURLPropertyName": "url",
-			"strictProperty": "strip_rel_urls",
-			"strictPropertyValue": "on",
 			"url": "https://kylewm.com/services/mf2",
 			"projectUrl": "https://github.com/tommorris/mf2py",
 			"authors": ["Tom Morris"]

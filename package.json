@@ -2,7 +2,7 @@
   "author": "Glenn Jones",
   "name": "microformats-testrunner",
   "description": "A microformat 2 test runner",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -27,7 +27,7 @@
     "joi": "6.4.x",
     "js-beautify": "1.5.x",
     "microformat-node": "0.2.x",
-    "microformat-tests": "0.1.x",
+    "microformat-tests": "https://api.github.com/repos/microformats/tests/tarball/",
     "mkdirp": "0.5.x",
     "moment": "2.10.x",
     "node-dir": "^0.1.8",
