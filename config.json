@@ -32,6 +32,14 @@
 			"url": "http://mf2.vendaria.net/parse",
 			"projectUrl": "https://github.com/andyleap/microformats",
 			"authors": ["Andy Leap"]
+		}, {
+			"name": "mf2j",
+			"method": "post",
+			"htmlPropertyName": "html",
+			"baseURLPropertyName": "url",
+			"url": "https://mf2j.herokuapp.com",
+			"projectUrl": "https://github.com/kylewm/mf2j",
+			"authors": ["Kyle Mahan"]
 		}
 	],
 	"versions": [
